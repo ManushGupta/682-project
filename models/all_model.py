@@ -68,7 +68,7 @@ class CNN(object):
 
         self.objective = sigmoidCE(y, yhat)
         self.optimizer = tf.train.AdamOptimizer(self.lr).minimize(self.objective)
-        tf.scalar_summary(self.objective.op.name, self.objective)
+        tf.summary.scalar(self.objective.op.name, self.objective)
 
         self.sess = tf.Session(config=config)
 
@@ -81,12 +81,12 @@ class CNN(object):
 
         saver = tf.train.Saver(tf.all_variables())
 
-        summary_op = tf.merge_all_summaries()
+        summary_op = tf.summary.merge_all()
 
         init = tf.initialize_all_variables()
         self.sess.run(init)
         
-        summary_writer = tf.train.SummaryWriter(
+        summary_writer = tf.summary.FileWriter(
             logdir=logdir,
             graph=self.sess.graph)
 

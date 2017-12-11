@@ -105,7 +105,7 @@ class SCNN(object):
         self.objective = self.obj1_lambda * self.objective_1 + self.objective_2
         self.optimizer = tf.train.AdamOptimizer(self.lr).minimize(self.objective)
 
-        tf.scalar_summary(self.objective.op.name, self.objective)
+        tf.summary.scalar(self.objective.op.name, self.objective)
 
         self.sess = tf.Session(config=config)
         
@@ -124,12 +124,12 @@ class SCNN(object):
 
         saver = tf.train.Saver(tf.all_variables())
 
-        summary_op = tf.merge_all_summaries()
+        summary_op = tf.summary.merge_all()
 
         init = tf.initialize_all_variables()
         self.sess.run(init)
         
-        summary_writer = tf.train.SummaryWriter(
+        summary_writer = tf.summary.FileWriter(
             logdir=self.logdir,
             graph=self.sess.graph)
 
@@ -305,7 +305,7 @@ class SCNN(object):
 
             # Crop
             f_bbox = bbox.subBBox(-0.05, 1.05, -0.05, 1.05)
-            f_face = img[f_bbox.top:f_bbox.bottom+1,f_bbox.left:f_bbox.right+1]
+            f_face = img[int(f_bbox.top):int(f_bbox.bottom)+1,int(f_bbox.left):int(f_bbox.right)+1]
 
             # Resize
             f_face = cv2.resize(f_face, (39, 39))

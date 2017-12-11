@@ -381,6 +381,7 @@ class CSCNN(object):
         error = np.zeros((len(data), 5))
         for i in range(len(data)):
             imgPath, bbox, landmarkGt, _, _, _, _ = data[i]
+            print imgPath
             img = cv2.imread(imgPath, cv2.IMREAD_GRAYSCALE)
             
             assert(img is not None)
@@ -388,7 +389,7 @@ class CSCNN(object):
 
             # Crop
             f_bbox = bbox.subBBox(-0.05, 1.05, -0.05, 1.05)
-            f_face = img[f_bbox.top:f_bbox.bottom+1,f_bbox.left:f_bbox.right+1]
+            f_face = img[int(f_bbox.top):int(f_bbox.bottom)+1,int(f_bbox.left):int(f_bbox.right)+1]
 
             # Resize
             f_face = cv2.resize(f_face, (39, 39))

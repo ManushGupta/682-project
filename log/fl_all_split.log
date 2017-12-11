@@ -1,18 +1,18 @@
 ################## Summary #####################
         Test Number: 3466
-        Time Consume: 22.916 s
-        FPS: 151.246
+        Time Consume: 8.834 s
+        FPS: 392.342
         LEVEL - 0
         Mean Error:
-            Left Eye       = 0.068876
-            Right Eye      = 0.079943
-            Nose           = 0.122112
-            Left Mouth     = 0.089655
-            Right Mouth    = 0.102675
+            Left Eye       = 0.049611
+            Right Eye      = 0.052383
+            Nose           = 0.065749
+            Left Mouth     = 0.061878
+            Right Mouth    = 0.067123
         Failure:
-            Left Eye       = 0.612233
-            Right Eye      = 0.684651
-            Nose           = 0.869590
-            Left Mouth     = 0.766878
-            Right Mouth    = 0.822562
+            Left Eye       = 0.408540
+            Right Eye      = 0.454126
+            Nose           = 0.593191
+            Left Mouth     = 0.569244
+            Right Mouth    = 0.627813
         
