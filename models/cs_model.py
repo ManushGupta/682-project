@@ -191,7 +191,7 @@ class CSCNN(object):
         return self.sess.run(self.yhat, feed_dict={self.x: x})
 
     def train(self, train_batches, valid_set=None, 
-        lr=1e-2, n_epoch=10):
+        lr=1e-2, n_epoch=100):
 
         saver = tf.train.Saver(tf.all_variables())
 

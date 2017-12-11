@@ -13,7 +13,7 @@ logdir = 'trained_models/fl_' + attribute + '_crossstitch_model'
 FLAGS = tf.app.flags.FLAGS  
 tf.app.flags.DEFINE_float('lr', 1e-2, 'learning rate')
 tf.app.flags.DEFINE_float('valid', 0.2, 'fraction of validation set')
-tf.app.flags.DEFINE_integer('n_epoch', 1000, 'number of epochs')
+tf.app.flags.DEFINE_integer('n_epoch', 10, 'number of epochs')
 tf.app.flags.DEFINE_integer('batch_size', 128, 'batch size')
 
 # Global settings
